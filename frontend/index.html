@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regex → DFA Compiler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <h1>Regex → DFA</h1>
+      <p class="lede">Type a regular expression and follow it through the compiler, stage by stage.</p>
+    </header>
+
+    <section class="compose" aria-label="Regular expression">
+      <label for="regex" class="compose-label">Regular expression</label>
+      <div class="compose-row">
+        <input id="regex" type="text" value="(a|b)*abb" spellcheck="false" autocomplete="off">
+        <button id="compile" type="button">Compile</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="workbench">
+      <section class="stage-area" aria-label="Compiler stages">
+        <div class="tabs" role="tablist" aria-label="Compiler stages">
+          <button role="tab" id="tab-tokens" aria-controls="panel-tokens" aria-selected="false">Tokens</button>
+          <button role="tab" id="tab-ast" aria-controls="panel-ast" aria-selected="false">AST</button>
+          <button role="tab" id="tab-nfa" aria-controls="panel-nfa" aria-selected="true">ε-NFA</button>
+          <button role="tab" id="tab-dfa" aria-controls="panel-dfa" aria-selected="false" class="tab-planned">DFA</button>
+          <button role="tab" id="tab-min" aria-controls="panel-min" aria-selected="false" class="tab-planned">Minimized DFA</button>
+        </div>
+
+        <div class="panel" id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens" hidden>
+          <p class="panel-note">What the lexer reads from the regex, left to right.</p>
+          <ul id="token-list" class="token-list"></ul>
+        </div>
+
+        <div class="panel" id="panel-ast" role="tabpanel" aria-labelledby="tab-ast" hidden>
+          <p class="panel-note">What the parser builds. Star binds tightest, then concatenation, then union.</p>
+          <div class="diagram"><svg id="ast-svg" role="img" aria-label="Abstract syntax tree"></svg></div>
+        </div>
+
+        <div class="panel" id="panel-nfa" role="tabpanel" aria-labelledby="tab-nfa">
+          <p class="panel-note">Thompson construction. Dashed arrows are ε moves that consume no input.</p>
+          <div class="diagram"><svg id="nfa-svg" role="img" aria-label="Epsilon NFA state diagram"></svg></div>
+        </div>
+
+        <div class="panel" id="panel-dfa" role="tabpanel" aria-labelledby="tab-dfa" hidden>
+          <p class="empty">The DFA is built in the C++ compiler but isn't shown here yet. It will appear once the page is connected to the compiler.</p>
+        </div>
+
+        <div class="panel" id="panel-min" role="tabpanel" aria-labelledby="tab-min" hidden>
+          <p class="empty">Minimization is still in progress in the C++ compiler.</p>
+        </div>
+      </section>
+
+      <aside class="side" aria-label="Summary and string test">
+        <h2>Summary</h2>
+        <dl id="stats" class="stats"></dl>
+
+        <h2>Test a string</h2>
+        <div class="compose-row small">
+          <input id="test-input" type="text" placeholder="aabb" disabled aria-describedby="test-note">
+          <button type="button" disabled>Test</button>
+        </div>
+        <p id="test-note" class="side-note">Available once the matcher is built.</p>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <p>Prototype. The page shows saved output for <code>(a|b)*abb</code> and is not yet connected to the C++ compiler.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
