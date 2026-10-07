@@ -3,6 +3,7 @@
 #include "parser/parser.h"
 #include "ast/ast.h"
 #include "lexer/lexer.h"
+#include "nfa/nfa.h"
 
 int main()
 {
@@ -69,6 +70,10 @@ int main()
 
         std::cout << "\nAST:\n";
         printAST(root);
+        NFA nfa = buildNFA(root);
+
+std::cout << "\nNFA:\n";
+printNFA(nfa);
     }
     catch (const std::exception &error)
     {
