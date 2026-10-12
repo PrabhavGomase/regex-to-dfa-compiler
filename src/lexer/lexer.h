@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "../limits.h"
 
 enum class TokenType {
     LITERAL,
@@ -18,11 +19,13 @@ enum class TokenType {
 struct Token {
     TokenType type;
     char value;
+    size_t offset = 0;
 };
+const char* tokenName(TokenType type);
 
 class Lexer {
 public:
-    explicit Lexer(const std::string& input);
+    explicit Lexer(const std::string& input, const Limits& limits = Limits{});
 
     std::vector<Token> tokenize();
     private:

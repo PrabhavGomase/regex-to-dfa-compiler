@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "../ast/ast.h"
+#include "../limits.h"
 
 const char EPSILON = '\0';
 
@@ -19,7 +20,7 @@ struct NFA {
     std::vector<Transition> transitions;
 };
 
-NFA buildNFA(const ASTNode* root);
+NFA buildNFA(const ASTNode* root, const Limits& limits = Limits{});
 void printNFA(const NFA& nfa);
 
 #endif

@@ -24,6 +24,11 @@ Fragment build(const ASTNode* node, NFA& nfa) {
     }
 
     switch (node->type) {
+        case NodeType::EMPTY: {
+            int s = newState(nfa), f = newState(nfa);
+            addTransition(nfa, s, f, EPSILON);
+            return {s, f};
+        }
         case NodeType::SYMBOL: {
             int s = newState(nfa);
             int f = newState(nfa);
@@ -87,11 +92,15 @@ Fragment build(const ASTNode* node, NFA& nfa) {
 
 } // namespace
 
-NFA buildNFA(const ASTNode* root) {
+NFA buildNFA(const ASTNode* root, const Limits& limits) {
+    if (static_cast<size_t>(nodeCount(root)) * 2 > limits.nfaStates)
+        throw std::runtime_error("Resource limit: NFA state budget exceeded");
+    WorkBudget budget(limits);
     NFA nfa;
     nfa.stateCount = 0;
 
     Fragment result = build(root, nfa);
+    budget.check();
     nfa.start = result.start;
     nfa.accept = result.accept;
 

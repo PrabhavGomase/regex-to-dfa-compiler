@@ -40,8 +40,9 @@ std::set<int> moveOnSymbol(const NFA& nfa, const std::set<int>& states, char sym
     return result;
 }
 
-DFA buildDFA(const NFA& nfa) {
+DFA buildDFA(const NFA& nfa, const Limits& limits) {
     DFA dfa;
+    WorkBudget budget(limits);
 
     // Alphabet: every non-epsilon symbol used in the NFA
     std::set<char> symbols;
@@ -56,6 +57,8 @@ DFA buildDFA(const NFA& nfa) {
     std::queue<int> work;
 
     auto addState = [&](const std::set<int>& set) {
+        if (dfa.nfaSets.size() >= limits.dfaStates)
+            throw std::runtime_error("Resource limit: DFA state budget exceeded");
         int id = static_cast<int>(dfa.nfaSets.size());
         ids[set] = id;
         dfa.nfaSets.push_back(set);
@@ -69,10 +72,12 @@ DFA buildDFA(const NFA& nfa) {
     dfa.start = addState(epsilonClosure(nfa, {nfa.start}));
 
     while (!work.empty()) {
+        budget.check();
         int current = work.front();
         work.pop();
 
         for (char symbol : dfa.alphabet) {
+            budget.check();
             std::set<int> target =
                 epsilonClosure(nfa, moveOnSymbol(nfa, dfa.nfaSets[current], symbol));
 
@@ -90,7 +95,14 @@ DFA buildDFA(const NFA& nfa) {
     return dfa;
 }
 
-void printDFA(const DFA& dfa) {
+int nextState(const DFA& dfa, int state, char symbol) {
+    auto row = dfa.transitions.find(state);
+    if (row == dfa.transitions.end()) return -1;
+    auto edge = row->second.find(symbol);
+    return edge == row->second.end() ? -1 : edge->second;
+}
+
+void printDFA(const DFA& dfa, const char* setPrefix) {
     std::cout << "States: " << dfa.nfaSets.size() << '\n';
     std::cout << "Start: D" << dfa.start << '\n';
 
@@ -106,7 +118,7 @@ void printDFA(const DFA& dfa) {
         bool first = true;
         for (int s : dfa.nfaSets[i]) {
             if (!first) std::cout << ", ";
-            std::cout << "q" << s;
+            std::cout << setPrefix << s;
             first = false;
         }
         std::cout << "}\n";

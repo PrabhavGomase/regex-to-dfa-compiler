@@ -1,85 +1,68 @@
+#include "compiler/compiler.h"
+#include "compiler/json.h"
+#include "matcher/matcher.h"
 #include <iostream>
 #include <string>
-#include <vector>
 
-#include "lexer/lexer.h"
-#include "parser/parser.h"
-#include "ast/ast.h"
-#include "nfa/nfa.h"
-#include "dfa/dfa.h"
-
-static const char *tokenName(TokenType type)
-{
-    switch (type)
-    {
-    case TokenType::LITERAL:
-        return "LITERAL";
-    case TokenType::OR:
-        return "OR";
-    case TokenType::STAR:
-        return "STAR";
-    case TokenType::PLUS:
-        return "PLUS";
-    case TokenType::QUESTION:
-        return "QUESTION";
-    case TokenType::LPAREN:
-        return "LPAREN";
-    case TokenType::RPAREN:
-        return "RPAREN";
-    case TokenType::END:
-        return "END";
-    }
-    return "UNKNOWN";
-}
-
-int main()
-{
-    std::string regex;
-
-    std::cout << "Enter regular expression: ";
-    std::getline(std::cin, regex);
-
-    try
-    {
-        // Stage 1: Lexer
-        Lexer lexer(regex);
-        std::vector<Token> tokens = lexer.tokenize();
-
-        std::cout << "\nTokens:\n";
-        for (const Token &token : tokens)
-        {
-            std::cout << "Type: " << tokenName(token.type);
-
-            if (token.type == TokenType::LITERAL)
-            {
-                std::cout << " | Value: " << token.value;
-            }
-
-            std::cout << '\n';
+int main(int argc, char** argv) {
+    bool json = argc > 1;
+    try {
+        std::string mode = argc > 1 ? argv[1] : "", regex, input, candidate;
+        if (mode == "--request") {
+            std::getline(std::cin, mode);
+            std::getline(std::cin, regex);
+            std::getline(std::cin, input);
+            std::getline(std::cin, candidate);
+        } else if (argc > 2) {
+            regex = argv[2];
+            if (argc > 3) input = argv[3];
         }
-
-        // Stage 2: Parser -> AST
-        Parser parser(tokens);
-        ASTNode *root = parser.parse();
-
-        std::cout << "\nAST:\n";
-        printAST(root);
-
-        // Stage 3: Thompson construction -> epsilon-NFA
-        NFA nfa = buildNFA(root);
-
-        std::cout << "\nNFA:\n";
-        printNFA(nfa);
-        DFA dfa = buildDFA(nfa);
-
-        std::cout << "\nDFA:\n";
-        printDFA(dfa);
-    }
-    catch (const std::exception &error)
-    {
-        std::cerr << "Error: " << error.what() << '\n';
+        if (mode == "--benchmark") {
+            int repetitions = argc > 2 ? std::stoi(argv[2]) : 20;
+            auto results = runBenchmarks(repetitions);
+            std::cout << "{\"cases\":[";
+            for (size_t i = 0; i < results.size(); ++i) {
+                if (i) std::cout << ',';
+                std::cout << comparisonJSON(results[i]);
+            }
+            std::cout << "]}\n";
+        } else if (mode == "--optimize" || mode == "optimize") {
+            if (argc < 3 && argc > 1 && std::string(argv[1]) != "--request") throw std::runtime_error("Missing regex argument");
+            std::cout << optimizationJSON(optimizeRegex(regex)) << '\n';
+        } else if (mode == "--equivalent" || mode == "equivalent") {
+            if (argc > 3) candidate = argv[3];
+            else if (argc > 1 && std::string(argv[1]) != "--request") throw std::runtime_error("Usage: --equivalent REGEX CANDIDATE");
+            std::cout << equivalenceJSON(verifyRewrite(regex, candidate)) << '\n';
+        } else if (mode == "--compare" || mode == "compare") {
+            if (argc < 3 && argc > 1 && std::string(argv[1]) != "--request") throw std::runtime_error("Missing regex argument");
+            std::cout << comparisonJSON(compareAlgorithms(regex)) << '\n';
+        } else if (mode == "--json" || mode == "compile") {
+            if (argc < 3 && argc > 1 && std::string(argv[1]) != "--request") throw std::runtime_error("Missing regex argument");
+            auto c = compileRegex(regex);
+            std::cout << compilationJSON(regex, input, c) << '\n';
+        } else if (mode.empty()) {
+            std::cout << "Enter regular expression: ";
+            std::getline(std::cin, regex);
+            auto c = compileRegex(regex);
+            std::cout << "\nTokens:\n";
+            for (const auto& t : c.tokens) {
+                std::cout << t.offset << ": " << tokenName(t.type);
+                if (t.type == TokenType::LITERAL) std::cout << ' ' << jsonQuote(std::string(1, t.value));
+                std::cout << '\n';
+            }
+            std::cout << "\nAST:\n"; printAST(c.ast.get());
+            std::cout << "\nNFA:\n"; printNFA(c.nfa);
+            std::cout << "\nDFA:\n"; printDFA(c.dfa);
+            std::cout << "\nMinimized DFA (sets of original DFA states; -1 is sink):\n"; printDFA(c.minimized, "D");
+            std::cout << "\nDirect DFA (sets of positions):\n"; printDFA(c.direct.dfa, "p");
+            std::cout << "\nAlgorithms and minimization agree. Enter a test string (empty allowed): ";
+            std::getline(std::cin, input);
+            std::cout << (matchDFA(c.minimized, input) ? "ACCEPT\n" : "REJECT\n");
+        } else throw std::runtime_error("Unknown mode. Use --json, --compare, --optimize, --equivalent, or --benchmark");
+        return 0;
+    } catch (const std::exception& e) {
+        if (json) std::cout << "{\"error\":" << jsonQuote(e.what()) << "}\n";
+        else std::cerr << "Error: " << e.what() << '\n';
         return 1;
     }
-
-    return 0;
 }

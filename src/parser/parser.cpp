@@ -1,143 +1,60 @@
 #include "parser.h"
-
-
+#include <memory>
 #include <stdexcept>
 
-Parser::Parser(const std::vector<Token>& tokens)
-    : tokens(tokens), position(0) {}
-
+Parser::Parser(const std::vector<Token>& tokens) : tokens(tokens), position(0) {}
 Token Parser::peek() const {
-    if (position >= tokens.size()) {
-        return {TokenType::END, '\0'};
-    }
-
-    return tokens[position];
+    return position < tokens.size() ? tokens[position] : Token{TokenType::END, '\0', position};
 }
-
 bool Parser::match(TokenType type) {
-    if (peek().type == type) {
-        position++;
-        return true;
-    }
-
-    return false;
+    if (peek().type != type) return false;
+    ++position;
+    return true;
 }
-
 ASTNode* Parser::parse() {
-    ASTNode* root = parseExpression();
-
-    if (peek().type != TokenType::END) {
-        throw std::runtime_error("Unexpected token after expression");
-    }
-
-    return root;
+    if (match(TokenType::END)) return new ASTNode(NodeType::EMPTY);
+    std::unique_ptr<ASTNode> root(parseExpression());
+    if (peek().type != TokenType::END)
+        throw std::runtime_error("Unexpected token at offset " + std::to_string(peek().offset));
+    return root.release();
 }
-
 ASTNode* Parser::parseExpression() {
-    ASTNode* left = parseTerm();
-
+    std::unique_ptr<ASTNode> left(parseTerm());
     while (match(TokenType::OR)) {
-        ASTNode* right = parseTerm();
-
-        ASTNode* node = new ASTNode;
-        node->type = NodeType::UNION;
-        node->value = '\0';
-        node->left = left;
-        node->right = right;
-
-        left = node;
+        std::unique_ptr<ASTNode> right(parseTerm());
+        left.reset(new ASTNode(NodeType::UNION, '\0', left.release(), right.release()));
     }
-
-    return left;
+    return left.release();
 }
-
 ASTNode* Parser::parseTerm() {
-    ASTNode* left = parseFactor();
-
-    while (true) {
-        TokenType type = peek().type;
-
-        if (type == TokenType::LITERAL ||
-            type == TokenType::LPAREN) {
-
-            ASTNode* right = parseFactor();
-
-            ASTNode* node = new ASTNode;
-            node->type = NodeType::CONCAT;
-            node->value = '\0';
-            node->left = left;
-            node->right = right;
-
-            left = node;
-        } else {
-            break;
-        }
+    std::unique_ptr<ASTNode> left(parseFactor());
+    while (peek().type == TokenType::LITERAL || peek().type == TokenType::LPAREN) {
+        std::unique_ptr<ASTNode> right(parseFactor());
+        left.reset(new ASTNode(NodeType::CONCAT, '\0', left.release(), right.release()));
     }
-
-    return left;
+    return left.release();
 }
-
 ASTNode* Parser::parseFactor() {
-    ASTNode* node = parsePrimary();
-
+    std::unique_ptr<ASTNode> node(parsePrimary());
     while (true) {
-        if (match(TokenType::STAR)) {
-            ASTNode* starNode = new ASTNode;
-            starNode->type = NodeType::STAR;
-            starNode->value = '\0';
-            starNode->left = node;
-            starNode->right = nullptr;
-
-            node = starNode;
-        }
-        else if (match(TokenType::PLUS)) {
-            ASTNode* plusNode = new ASTNode;
-            plusNode->type = NodeType::PLUS;
-            plusNode->value = '\0';
-            plusNode->left = node;
-            plusNode->right = nullptr;
-
-            node = plusNode;
-        }
-        else if (match(TokenType::QUESTION)) {
-            ASTNode* questionNode = new ASTNode;
-            questionNode->type = NodeType::QUESTION;
-            questionNode->value = '\0';
-            questionNode->left = node;
-            questionNode->right = nullptr;
-
-            node = questionNode;
-        }
-        else {
-            break;
-        }
+        NodeType type;
+        if (match(TokenType::STAR)) type = NodeType::STAR;
+        else if (match(TokenType::PLUS)) type = NodeType::PLUS;
+        else if (match(TokenType::QUESTION)) type = NodeType::QUESTION;
+        else break;
+        node.reset(new ASTNode(type, '\0', node.release()));
     }
-
-    return node;
+    return node.release();
 }
-
 ASTNode* Parser::parsePrimary() {
     Token token = peek();
-
-    if (match(TokenType::LITERAL)) {
-        ASTNode* node = new ASTNode;
-        node->type = NodeType::SYMBOL;
-        node->value = token.value;
-        node->left = nullptr;
-        node->right = nullptr;
-
-        return node;
-    }
-
+    if (match(TokenType::LITERAL)) return new ASTNode(NodeType::SYMBOL, token.value);
     if (match(TokenType::LPAREN)) {
-        ASTNode* node = parseExpression();
-
-        if (!match(TokenType::RPAREN)) {
-            throw std::runtime_error("Missing closing parenthesis");
-        }
-
-        return node;
+        if (match(TokenType::RPAREN)) return new ASTNode(NodeType::EMPTY);
+        std::unique_ptr<ASTNode> node(parseExpression());
+        if (!match(TokenType::RPAREN))
+            throw std::runtime_error("Missing ')' at offset " + std::to_string(peek().offset));
+        return node.release();
     }
-
-    throw std::runtime_error("Expected literal or '('");
+    throw std::runtime_error("Expected literal or '(' at offset " + std::to_string(token.offset));
 }
