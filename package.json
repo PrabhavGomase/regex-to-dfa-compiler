@@ -1,0 +1,14 @@
+{
+  "name": "regexlab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "C++ regex compiler and automata tutor with a dependency-free local web interface",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "start": "node scripts/server.js",
+    "benchmark": "node scripts/benchmark.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

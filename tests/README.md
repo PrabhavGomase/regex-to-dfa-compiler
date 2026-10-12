@@ -1,78 +1,42 @@
-# Tests
+# Verification
 
-Manual tests. Each regex is entered into `./compiler` and the output is checked by hand.
+Run from the repository root:
 
-## Valid regexes
+```sh
+node scripts/build.js
+node scripts/test.js
+```
 
-All of these ran through Lexer → Parser → AST → ε-NFA → DFA and produced output.
+The runner invokes the compiled C++ correctness suite, then Node's built-in test runner for the actual compiler HTTP/CLI bridge. No third-party testing packages are required.
 
-**Basic**
-- `a`
-- `b`
-- `ab`
-- `24`
+## Coverage
 
-**Union and grouping**
-- `a|b`
-- `(a|b)`
-- `(a|b)(c|d)`
+- Operators, precedence, grouping, nested/repeated postfix operators.
+- Escaped punctuation, spaces, quotes/backslashes, and end-marker collision.
+- Empty expression, explicit ε, nullable plus/optional, accepting and rejecting examples.
+- Syntax offsets and rejected unsupported features, ASCII and byte limits.
+- Exhaustive words of length up to four over small alphabets, using independent `std::regex_match` where syntax overlaps.
+- A deterministic grammar-generated expression corpus and matching agreement across ε-NFA, subset DFA, direct DFA, and both minimized DFAs.
+- Structural equivalence, unreachable-state elimination, missing-edge completion, explicit/implicit dead-state merging, empty alphabet, and all-accepting/all-rejecting DFAs.
+- Shortest counterexamples, including ε, and witness validity.
+- Every built-in optimization family; proof and AST decrease for every accepted step; invalid user candidates.
+- DFA/NFA traces, construction/product budgets, deadlines, and actual exponential-family state caps for both construction methods.
+- HTTP/CLI JSON serialization, all compiler endpoints, repeated comparison samples, saved benchmark data, transport/input validation, fixed static asset serving, and error statuses.
 
-**Postfix operators**
-- `a*`
-- `a+`
-- `a?`
+Tests fail immediately on disagreement; nothing is skipped. The tests do not prove correctness for every possible regex. Product traversal establishes language equivalence for each compiled comparison within the configured bounds; the independent oracle guards against both implementations sharing a mistaken language interpretation.
 
-**Nested**
-- `(a|b)*`
-- `((a*)*)*`
-- `a(b|c)*d`
-- `(a|b)*abb`
-- `(a|b)*abb(a|b)`
+## Local verification (13 October 2026)
 
-## Reference case: `(a|b)*abb`
+The final test counts and commands are recorded in [delivery notes](../docs/delivery.md). GCC 6.3 on Windows compiled with C++17, optimization, and warnings. Node HTTP tests start a server on an ephemeral loopback port and close it afterward.
 
-- Tokens: 10, including END
-- AST: `CONCAT` nested to the left, with `STAR` over `UNION(a, b)` as the deepest branch
-- ε-NFA: 14 states, start q6, accept q13
-- DFA: 5 states, one accepting state
+Browser checks exercised the real local interface: accepted `aabb` for `(a|b)*abb`, minimized/direct diagrams, nullable/firstpos/lastpos/followpos, repeated timings, saved benchmarks, duplicate-union simplification proof, `a*` versus `a+` with an ε witness, invalid-input clearing, keyboard stage navigation, and large-DFA transition tables. No browser script warnings/errors were reported in the checked session. [Screenshot](../docs/screenshots/workbench.jpg) is an actual browser capture.
 
-## Precedence checks
+GitHub CI is configured to build and run the same automated tests on Ubuntu. Local success does not by itself claim that a remote CI run has passed.
 
-- `ab*` gives `CONCAT(a, STAR(b))`
-- `a|b*` gives `UNION(a, STAR(b))`
-- `a+b?` gives `CONCAT(PLUS(a), QUESTION(b))`
+## Benchmarks
 
-## Stress cases
+```sh
+node scripts/benchmark.js 20
+```
 
-- `(a*)*` and `((a*)*)*`: nested stars, ε-closure terminates
-- `(a*|b*)*`: several ε-cycles
-- `(a?)+`: optional inside plus
-- `a**`: repeated postfix operators
-- `a\*b` and `\(a\)`: escaped operators are treated as literals
-
-## Invalid regexes
-
-Each of these is rejected with a syntax error:
-
-- `(` → Expected literal or '('
-- `a|` → Expected literal or '('
-- `*a` → Expected literal or '('
-- `()` → Expected literal or '('
-- `a)` → Unexpected token after expression
-- `(a` → Missing closing parenthesis
-
-## What these tests cover
-
-These tests check that each stage runs and that the printed tokens, AST, NFA and DFA have the expected shape. They do not yet check that the DFA accepts exactly the right strings. That needs the matcher, which is planned.
-
-## Known limitations
-
-- `[a-z]`, `.`, `{n}`, `^`, `$`, `\d` are not supported and are read as literal characters.
-- Empty regex, `()`, and empty alternatives such as `a|` or `(a|)` are rejected.
-- Non-ASCII characters are handled byte by byte.
-
-## Planned
-
-- Matcher tests with strings that should be accepted and rejected
-- Automated test runner
-- Minimization tests
+This overwrites the deliberately tracked raw measurements and generated Markdown table. Each regex receives three warmups and twenty recorded runs per method. See [results](../docs/benchmarks.md) for environment details and methodology.

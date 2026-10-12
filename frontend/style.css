@@ -111,8 +111,34 @@ button {
   border: 1.5px solid var(--rule);
   border-radius: 2px;
   color: var(--muted);
-  cursor: not-allowed;
+  cursor: pointer;
 }
+
+button:disabled { cursor: not-allowed; opacity: 0.55; }
+.compose-row.small button:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+.eyebrow { color: var(--accent); font-size: .8rem; letter-spacing: .12em; font-weight: 700; }
+.analysis-section { margin-top: 1.25rem; padding: 1.25rem; border: 2px solid var(--ink); background: var(--card); }
+.section-heading { display: flex; gap: 1rem; align-items: start; justify-content: space-between; }
+.section-heading h2 { margin: 0; font-size: 1.2rem; }
+.section-heading p { margin: .4rem 0 1rem; color: var(--muted); max-width: 65ch; }
+.analysis-section button { padding: .6rem 1rem; background: var(--accent); border: 1px solid var(--accent); color: var(--card); border-radius: 2px; }
+.table-wrap { overflow-x: auto; margin: 1rem 0; max-height: 500px; }
+table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .5rem .65rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { color: var(--muted); background: var(--paper); }
+caption { text-align: left; padding: .4rem 0; color: var(--muted); }
+details { margin-top: .9rem; }
+summary { cursor: pointer; font-size: .9rem; color: var(--accent); }
+pre { overflow: auto; max-height: 500px; font-family: var(--font-code); font-size: .85rem; }
+.state-filter { display: block; margin-top: .4rem; font-size: .85rem !important; padding: .4rem !important; }
+.accepted { color: #0b6a4a; font-weight: 700; }
+.rejected { color: #8a3b2c; font-weight: 700; }
+.optimized { font-family: var(--font-code); color: var(--accent); }
+.trace-active circle { fill: #ffe7a3; stroke: #b8860b; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.diagram p { padding: 1rem; color: var(--muted); }
+.diagram svg { min-width: 380px; }
+@media (max-width: 520px) { .section-heading { flex-direction: column; } .section-heading button { margin-bottom: .7rem; } }
 
 :focus-visible {
   outline: 3px solid var(--focus);
@@ -165,19 +191,11 @@ button {
   color: var(--card);
 }
 
-.tab-planned { font-style: italic; }
-
 .panel { padding: 1.25rem; }
 
 .panel-note {
   margin: 0 0 1rem;
   max-width: 60ch;
-  color: var(--muted);
-}
-
-.empty {
-  margin: 1.5rem 0;
-  max-width: 52ch;
   color: var(--muted);
 }
 

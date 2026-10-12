@@ -1,0 +1,2635 @@
+{
+  "cases": [
+    {
+      "regex": "a",
+      "nfaStates": 2,
+      "nfaTransitions": 1,
+      "subset": {
+        "states": 2,
+        "transitions": 1,
+        "minStates": 3,
+        "minTransitions": 3
+      },
+      "direct": {
+        "states": 2,
+        "transitions": 1,
+        "minStates": 3,
+        "minTransitions": 3
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 7.300000191,
+          "minimizationUs": 6.099999905
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 5.200000286,
+          "minimizationUs": 6.5
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 5.299999714,
+          "minimizationUs": 6
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 7.099999905,
+          "minimizationUs": 5.799999714
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 6.400000095,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 5.400000095,
+          "minimizationUs": 6.700000286
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 5.599999905,
+          "minimizationUs": 6.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 9.300000191,
+          "minimizationUs": 6.299999714
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 7.400000095,
+          "minimizationUs": 6.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 4.700000286,
+          "minimizationUs": 6
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 4.699999809,
+          "minimizationUs": 5.800000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 7,
+          "minimizationUs": 5.899999619
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 6.900000095,
+          "minimizationUs": 5.599999905
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.799999714
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 4.600000381,
+          "minimizationUs": 5.899999619
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 6.800000191,
+          "minimizationUs": 5.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 6.5,
+          "minimizationUs": 5.899999619
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.900000095
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.800000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 7.099999905,
+          "minimizationUs": 6
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.900000095
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 4.599999905,
+          "minimizationUs": 5.800000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 6.900000095,
+          "minimizationUs": 5.700000286
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 6.600000381,
+          "minimizationUs": 5.799999714
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 4.400000095,
+          "minimizationUs": 6
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.599999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 6.699999809,
+          "minimizationUs": 6
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 6.700000286,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 5.100000381,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 6.900000095,
+          "minimizationUs": 5.799999714
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 6.800000191,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 4.400000095,
+          "minimizationUs": 5.800000191
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 4.5,
+          "minimizationUs": 5.699999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 7.799999714,
+          "minimizationUs": 5.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 5.5
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 4.299999714,
+          "minimizationUs": 5.900000095
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 5.099999905,
+          "minimizationUs": 5.599999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 6.700000286,
+          "minimizationUs": 5.5
+        }
+      ]
+    },
+    {
+      "regex": "ab",
+      "nfaStates": 4,
+      "nfaTransitions": 3,
+      "subset": {
+        "states": 3,
+        "transitions": 2,
+        "minStates": 4,
+        "minTransitions": 8
+      },
+      "direct": {
+        "states": 3,
+        "transitions": 2,
+        "minStates": 4,
+        "minTransitions": 8
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 12.5,
+          "minimizationUs": 11.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 7.099999905,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 7.5,
+          "minimizationUs": 12.19999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 20.20000029,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 13.0999999,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 7.700000286,
+          "minimizationUs": 12
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 8.300000191,
+          "minimizationUs": 11.29999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 13.5,
+          "minimizationUs": 11.4000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 13.0999999,
+          "minimizationUs": 11.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 7.700000286,
+          "minimizationUs": 12.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 7.5,
+          "minimizationUs": 11.60000038
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 13.5999999,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 13.0999999,
+          "minimizationUs": 11.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 7.200000286,
+          "minimizationUs": 11.5
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 7.200000286,
+          "minimizationUs": 11.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 13,
+          "minimizationUs": 11
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 23.19999981,
+          "minimizationUs": 11.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 7.5,
+          "minimizationUs": 11.60000038
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 7.5,
+          "minimizationUs": 11.29999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 11.0999999,
+          "minimizationUs": 10.70000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 10.5,
+          "minimizationUs": 10.89999962
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 7.5,
+          "minimizationUs": 11.20000029
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 7,
+          "minimizationUs": 11.10000038
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 10.5999999,
+          "minimizationUs": 10.70000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 10.19999981,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 7.200000286,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 7.099999905,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 10.4000001,
+          "minimizationUs": 10.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 10.30000019,
+          "minimizationUs": 10.89999962
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 7.200000286,
+          "minimizationUs": 10.89999962
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 7.300000191,
+          "minimizationUs": 10.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 10.30000019,
+          "minimizationUs": 10.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 10.29999971,
+          "minimizationUs": 10.60000038
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 7.400000095,
+          "minimizationUs": 11
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 8.300000191,
+          "minimizationUs": 11.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 10.5,
+          "minimizationUs": 10.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 10.5,
+          "minimizationUs": 10.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 7.599999905,
+          "minimizationUs": 11.20000029
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 7.200000286,
+          "minimizationUs": 10.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 10.4000001,
+          "minimizationUs": 10.5999999
+        }
+      ]
+    },
+    {
+      "regex": "a|b|c|d",
+      "nfaStates": 14,
+      "nfaTransitions": 16,
+      "subset": {
+        "states": 5,
+        "transitions": 4,
+        "minStates": 3,
+        "minTransitions": 12
+      },
+      "direct": {
+        "states": 2,
+        "transitions": 4,
+        "minStates": 3,
+        "minTransitions": 12
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 23.5,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 15.70000029,
+          "minimizationUs": 7.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 16.5,
+          "minimizationUs": 7.100000381
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 23.9000001,
+          "minimizationUs": 11.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 23.4000001,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 16.5,
+          "minimizationUs": 7.900000095
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 16.69999981,
+          "minimizationUs": 7.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 23.80000019,
+          "minimizationUs": 11.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 23.30000019,
+          "minimizationUs": 11
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 16.30000019,
+          "minimizationUs": 7.800000191
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 16,
+          "minimizationUs": 7.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 23.80000019,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 23.20000029,
+          "minimizationUs": 11.5
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 15.80000019,
+          "minimizationUs": 7.199999809
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 15.79999971,
+          "minimizationUs": 7.200000286
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 23.30000019,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 22.70000029,
+          "minimizationUs": 11.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 15.89999962,
+          "minimizationUs": 7.100000381
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 15.80000019,
+          "minimizationUs": 6.900000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 23.30000019,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 23.10000038,
+          "minimizationUs": 11.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 15.9000001,
+          "minimizationUs": 7.300000191
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 16.30000019,
+          "minimizationUs": 7.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 23.4000001,
+          "minimizationUs": 11.39999962
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 22.9000001,
+          "minimizationUs": 12.30000019
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 16,
+          "minimizationUs": 7.199999809
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 20.29999971,
+          "minimizationUs": 7.200000286
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 22.4000001,
+          "minimizationUs": 11.19999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 23,
+          "minimizationUs": 10.89999962
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 15.5,
+          "minimizationUs": 7.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 15.79999971,
+          "minimizationUs": 6.900000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 22.70000029,
+          "minimizationUs": 11
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 22.79999971,
+          "minimizationUs": 10.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 16.5,
+          "minimizationUs": 7.099999905
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 15.69999981,
+          "minimizationUs": 6.800000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 22.9000001,
+          "minimizationUs": 11.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 23.20000029,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 15.9000001,
+          "minimizationUs": 6.799999714
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 16.5,
+          "minimizationUs": 7.199999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 23.5,
+          "minimizationUs": 12.4000001
+        }
+      ]
+    },
+    {
+      "regex": "(a|b)*abb",
+      "nfaStates": 14,
+      "nfaTransitions": 16,
+      "subset": {
+        "states": 5,
+        "transitions": 10,
+        "minStates": 4,
+        "minTransitions": 8
+      },
+      "direct": {
+        "states": 4,
+        "transitions": 8,
+        "minStates": 4,
+        "minTransitions": 8
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 37.4000001,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 26.0999999,
+          "minimizationUs": 9.900000095
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 24.70000029,
+          "minimizationUs": 9.199999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 35.69999981,
+          "minimizationUs": 11.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 46.9000001,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 25,
+          "minimizationUs": 9.699999809
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 29.0999999,
+          "minimizationUs": 9.599999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 35.5,
+          "minimizationUs": 12.29999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 35,
+          "minimizationUs": 11.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 26.0999999,
+          "minimizationUs": 9.800000191
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 24.5999999,
+          "minimizationUs": 9.599999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 34.39999962,
+          "minimizationUs": 12.10000038
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 34.29999971,
+          "minimizationUs": 11.5
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 24.20000029,
+          "minimizationUs": 9.400000095
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 23.0999999,
+          "minimizationUs": 9.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 33.79999971,
+          "minimizationUs": 11.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 33.39999962,
+          "minimizationUs": 11.5
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 24.0999999,
+          "minimizationUs": 9.400000095
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 23.4000001,
+          "minimizationUs": 9.699999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 41.69999981,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 33.9000001,
+          "minimizationUs": 11
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 25.20000029,
+          "minimizationUs": 9.5
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 24.30000019,
+          "minimizationUs": 9.300000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 34.20000029,
+          "minimizationUs": 11.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 34.30000019,
+          "minimizationUs": 11.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 23.9000001,
+          "minimizationUs": 9.300000191
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 30.30000019,
+          "minimizationUs": 9.300000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 39.80000019,
+          "minimizationUs": 13.39999962
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 33.9000001,
+          "minimizationUs": 11.30000019
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 24.0999999,
+          "minimizationUs": 9.400000095
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 23.19999981,
+          "minimizationUs": 9.600000381
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 33.0999999,
+          "minimizationUs": 11.20000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 32.80000019,
+          "minimizationUs": 10.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 24.5,
+          "minimizationUs": 9.599999905
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 24.30000019,
+          "minimizationUs": 9.199999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 33.29999971,
+          "minimizationUs": 11.10000038
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 33.30000019,
+          "minimizationUs": 11
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 25.30000019,
+          "minimizationUs": 9.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 24.5,
+          "minimizationUs": 9.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 33.5,
+          "minimizationUs": 11.5999999
+        }
+      ]
+    },
+    {
+      "regex": "((a*)*)*",
+      "nfaStates": 8,
+      "nfaTransitions": 13,
+      "subset": {
+        "states": 2,
+        "transitions": 2,
+        "minStates": 1,
+        "minTransitions": 1
+      },
+      "direct": {
+        "states": 1,
+        "transitions": 1,
+        "minStates": 1,
+        "minTransitions": 1
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 10.89999962,
+          "minimizationUs": 3.5
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 6.700000286,
+          "minimizationUs": 2.399999619
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 2
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 10,
+          "minimizationUs": 3.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 9.900000095,
+          "minimizationUs": 3.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 7,
+          "minimizationUs": 2.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 2.300000191
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 10.5,
+          "minimizationUs": 3.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 9.600000381,
+          "minimizationUs": 3.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 7,
+          "minimizationUs": 2.300000191
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 6.700000286,
+          "minimizationUs": 2.299999714
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 10.0999999,
+          "minimizationUs": 3.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 10,
+          "minimizationUs": 3.200000286
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 7.599999905,
+          "minimizationUs": 2.200000286
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 7.400000095,
+          "minimizationUs": 2.199999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 10.10000038,
+          "minimizationUs": 3.299999714
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 9.899999619,
+          "minimizationUs": 3.300000191
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 6.700000286,
+          "minimizationUs": 2.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 2.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 10,
+          "minimizationUs": 3.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 10.0999999,
+          "minimizationUs": 3.5
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 2.400000095
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 6.400000095,
+          "minimizationUs": 2.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 9.700000286,
+          "minimizationUs": 3.599999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 9.800000191,
+          "minimizationUs": 3.5
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 6.800000191,
+          "minimizationUs": 2.199999809
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 6.800000191,
+          "minimizationUs": 2.199999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 9.899999619,
+          "minimizationUs": 3.600000381
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 9.900000095,
+          "minimizationUs": 3.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 6.699999809,
+          "minimizationUs": 2.199999809
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 6.5,
+          "minimizationUs": 2.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 10.80000019,
+          "minimizationUs": 3.400000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 10.5999999,
+          "minimizationUs": 3.200000286
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 6.600000381,
+          "minimizationUs": 2.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 6.700000286,
+          "minimizationUs": 2.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 9.800000191,
+          "minimizationUs": 3.199999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 10.0999999,
+          "minimizationUs": 3.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 6.400000095,
+          "minimizationUs": 2.299999714
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 6.599999905,
+          "minimizationUs": 2.099999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 9.5,
+          "minimizationUs": 3.300000191
+        }
+      ]
+    },
+    {
+      "regex": "a?b+c*",
+      "nfaStates": 12,
+      "nfaTransitions": 15,
+      "subset": {
+        "states": 4,
+        "transitions": 6,
+        "minStates": 5,
+        "minTransitions": 15
+      },
+      "direct": {
+        "states": 4,
+        "transitions": 6,
+        "minStates": 5,
+        "minTransitions": 15
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 19.9000001,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 16,
+          "minimizationUs": 12.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 15.9000001,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 19.0999999,
+          "minimizationUs": 12.4000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 19.0999999,
+          "minimizationUs": 12.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 16.80000019,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 16.10000038,
+          "minimizationUs": 12.29999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 19.4000001,
+          "minimizationUs": 12.4000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 19.19999981,
+          "minimizationUs": 12
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 16.4000001,
+          "minimizationUs": 11.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 15.79999971,
+          "minimizationUs": 12.20000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 19.4000001,
+          "minimizationUs": 11.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 19.19999981,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 15.9000001,
+          "minimizationUs": 12.20000029
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 15.4000001,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 24.69999981,
+          "minimizationUs": 11.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 18.5999999,
+          "minimizationUs": 11.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 16.0999999,
+          "minimizationUs": 12
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 15.5999999,
+          "minimizationUs": 12.20000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 18.4000001,
+          "minimizationUs": 12.4000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 18.4000001,
+          "minimizationUs": 12
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 15.9000001,
+          "minimizationUs": 12
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 15.5999999,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 18.70000029,
+          "minimizationUs": 11.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 17.9000001,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 16.39999962,
+          "minimizationUs": 12.10000038
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 16.19999981,
+          "minimizationUs": 11.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 19.19999981,
+          "minimizationUs": 12
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 19.0999999,
+          "minimizationUs": 11.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 15.5,
+          "minimizationUs": 12
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 15.60000038,
+          "minimizationUs": 12.19999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 18.80000019,
+          "minimizationUs": 12.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 18.5,
+          "minimizationUs": 12.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 15.80000019,
+          "minimizationUs": 11.89999962
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 15.5,
+          "minimizationUs": 12.20000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 18.30000019,
+          "minimizationUs": 11.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 17.89999962,
+          "minimizationUs": 11.60000038
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 15.70000029,
+          "minimizationUs": 12.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 15.70000029,
+          "minimizationUs": 11.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 18.80000019,
+          "minimizationUs": 12.0999999
+        }
+      ]
+    },
+    {
+      "regex": "(a|b|c)*abc",
+      "nfaStates": 18,
+      "nfaTransitions": 21,
+      "subset": {
+        "states": 6,
+        "transitions": 18,
+        "minStates": 4,
+        "minTransitions": 12
+      },
+      "direct": {
+        "states": 4,
+        "transitions": 12,
+        "minStates": 4,
+        "minTransitions": 12
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 99.5999999,
+          "minimizationUs": 23.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 74.80000019,
+          "minimizationUs": 20.79999971
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 59.5,
+          "minimizationUs": 15.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 65,
+          "minimizationUs": 14.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 61.5,
+          "minimizationUs": 14.30000019
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 37.19999981,
+          "minimizationUs": 11
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 35,
+          "minimizationUs": 10.30000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 63.19999981,
+          "minimizationUs": 14.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 61.80000019,
+          "minimizationUs": 14.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 37.0999999,
+          "minimizationUs": 11
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 35.5999999,
+          "minimizationUs": 10.30000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 62.5999999,
+          "minimizationUs": 15
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 63.9000001,
+          "minimizationUs": 13.79999971
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 35.5,
+          "minimizationUs": 10.70000029
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 35.79999971,
+          "minimizationUs": 10.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 64.4000001,
+          "minimizationUs": 14.30000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 64.30000019,
+          "minimizationUs": 14.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 43.5999999,
+          "minimizationUs": 11.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 36.19999981,
+          "minimizationUs": 9.700000286
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 62,
+          "minimizationUs": 14.19999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 62,
+          "minimizationUs": 13.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 35.69999981,
+          "minimizationUs": 10.20000029
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 34.0999999,
+          "minimizationUs": 9.699999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 61.29999971,
+          "minimizationUs": 14.30000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 61.5,
+          "minimizationUs": 14.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 35,
+          "minimizationUs": 10.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 34.0999999,
+          "minimizationUs": 9.699999809
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 61.30000019,
+          "minimizationUs": 14.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 61,
+          "minimizationUs": 13.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 34.5999999,
+          "minimizationUs": 10.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 33.30000019,
+          "minimizationUs": 9.599999905
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 60.5999999,
+          "minimizationUs": 20.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 59.69999981,
+          "minimizationUs": 13.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 35.0999999,
+          "minimizationUs": 10.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 33.70000029,
+          "minimizationUs": 10.39999962
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 61.5,
+          "minimizationUs": 14.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 59.80000019,
+          "minimizationUs": 13.39999962
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 35.29999971,
+          "minimizationUs": 10
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 33.5999999,
+          "minimizationUs": 9.900000095
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 61.0999999,
+          "minimizationUs": 14
+        }
+      ]
+    },
+    {
+      "regex": "(a|b)*a(a|b)(a|b)(a|b)",
+      "nfaStates": 28,
+      "nfaTransitions": 33,
+      "subset": {
+        "states": 17,
+        "transitions": 34,
+        "minStates": 16,
+        "minTransitions": 32
+      },
+      "direct": {
+        "states": 16,
+        "transitions": 32,
+        "minStates": 16,
+        "minTransitions": 32
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 202.5999999,
+          "minimizationUs": 60.80000019
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 107.7999997,
+          "minimizationUs": 105.5
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 104.1999998,
+          "minimizationUs": 55.70000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 207.1999998,
+          "minimizationUs": 63
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 202.5,
+          "minimizationUs": 61.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 107.8000002,
+          "minimizationUs": 57.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 112.2999997,
+          "minimizationUs": 56.20000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 213.4000001,
+          "minimizationUs": 61.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 214.1999998,
+          "minimizationUs": 69
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 113.5999999,
+          "minimizationUs": 58.69999981
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 151,
+          "minimizationUs": 56.30000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 202.9000001,
+          "minimizationUs": 61.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 195.0999999,
+          "minimizationUs": 59.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 107.1000004,
+          "minimizationUs": 58.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 171.3000002,
+          "minimizationUs": 56.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 202,
+          "minimizationUs": 60.80000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 194.7999997,
+          "minimizationUs": 59.20000029
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 107.5,
+          "minimizationUs": 121.7999997
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 122.2999997,
+          "minimizationUs": 57.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 213.8000002,
+          "minimizationUs": 63.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 201,
+          "minimizationUs": 60.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 106.0999999,
+          "minimizationUs": 57.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 104.5,
+          "minimizationUs": 55.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 206.6999998,
+          "minimizationUs": 62.30000019
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 196.5,
+          "minimizationUs": 60.0999999
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 112.5,
+          "minimizationUs": 59.19999981
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 106.3000002,
+          "minimizationUs": 56.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 204.3000002,
+          "minimizationUs": 62.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 197.7000003,
+          "minimizationUs": 58.89999962
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 106.8000002,
+          "minimizationUs": 58
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 104.9000001,
+          "minimizationUs": 55.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 214.5999999,
+          "minimizationUs": 66.70000029
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 204.7999997,
+          "minimizationUs": 61
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 106.1000004,
+          "minimizationUs": 58.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 103,
+          "minimizationUs": 56.69999981
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 204.3000002,
+          "minimizationUs": 61.79999971
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 199.9000001,
+          "minimizationUs": 60.29999971
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 103.1999998,
+          "minimizationUs": 57.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 101.1999998,
+          "minimizationUs": 54.4000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 201.9000001,
+          "minimizationUs": 59.29999971
+        }
+      ]
+    },
+    {
+      "regex": "(a|b)*a(a|b)(a|b)(a|b)(a|b)(a|b)",
+      "nfaStates": 40,
+      "nfaTransitions": 47,
+      "subset": {
+        "states": 65,
+        "transitions": 130,
+        "minStates": 64,
+        "minTransitions": 128
+      },
+      "direct": {
+        "states": 64,
+        "transitions": 128,
+        "minStates": 64,
+        "minTransitions": 128
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 1187.5,
+          "minimizationUs": 301.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 494.8000002,
+          "minimizationUs": 302.3000002
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 486.1999998,
+          "minimizationUs": 304
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 1223.5,
+          "minimizationUs": 317
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 1276,
+          "minimizationUs": 314.8000002
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 501.6999998,
+          "minimizationUs": 303
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 497.4000001,
+          "minimizationUs": 288.6999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 1223.2,
+          "minimizationUs": 318.9000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 1174.8,
+          "minimizationUs": 304.2000003
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 513.6999998,
+          "minimizationUs": 303.8000002
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 489,
+          "minimizationUs": 288.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 1245.7,
+          "minimizationUs": 311.4000001
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 1202,
+          "minimizationUs": 300.6999998
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 499.7000003,
+          "minimizationUs": 302.1999998
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 508,
+          "minimizationUs": 308.1999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 1215.1,
+          "minimizationUs": 314.6999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 1284.3,
+          "minimizationUs": 300.7000003
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 508.0999999,
+          "minimizationUs": 302.6000004
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 492.4000001,
+          "minimizationUs": 289.5999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 1193,
+          "minimizationUs": 314.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 1186,
+          "minimizationUs": 299.7000003
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 498.8999996,
+          "minimizationUs": 308
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 492.6999998,
+          "minimizationUs": 293.6999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 1230.2,
+          "minimizationUs": 315
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 1203.9,
+          "minimizationUs": 302.5
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 497.9000001,
+          "minimizationUs": 308.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 479.2999997,
+          "minimizationUs": 292.2000003
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 1227.8,
+          "minimizationUs": 305.0999999
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 1218.1,
+          "minimizationUs": 300.1999998
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 532.4000001,
+          "minimizationUs": 313.6999998
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 499.6999998,
+          "minimizationUs": 311.6000004
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 1314.4,
+          "minimizationUs": 331.6999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 1797,
+          "minimizationUs": 451.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 515.3000002,
+          "minimizationUs": 334.5999999
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 497.5,
+          "minimizationUs": 324.1999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 1619.2,
+          "minimizationUs": 538.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 1526.2,
+          "minimizationUs": 329.9000001
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 751.7999997,
+          "minimizationUs": 489.4000001
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 600.3000002,
+          "minimizationUs": 312.6999998
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 1527.8,
+          "minimizationUs": 380.0999999
+        }
+      ]
+    },
+    {
+      "regex": "(a|b)*a(a|b)(a|b)(a|b)(a|b)(a|b)(a|b)(a|b)",
+      "nfaStates": 52,
+      "nfaTransitions": 61,
+      "subset": {
+        "states": 257,
+        "transitions": 514,
+        "minStates": 256,
+        "minTransitions": 512
+      },
+      "direct": {
+        "states": 256,
+        "transitions": 512,
+        "minStates": 256,
+        "minTransitions": 512
+      },
+      "equivalent": true,
+      "warmups": 3,
+      "repetitions": 20,
+      "samples": [
+        {
+          "method": "thompson_subset",
+          "repetition": 0,
+          "constructionUs": 8074.6,
+          "minimizationUs": 1850
+        },
+        {
+          "method": "direct",
+          "repetition": 0,
+          "constructionUs": 2613.4,
+          "minimizationUs": 1838.9
+        },
+        {
+          "method": "direct",
+          "repetition": 1,
+          "constructionUs": 2459.8,
+          "minimizationUs": 1907.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 1,
+          "constructionUs": 6633.2,
+          "minimizationUs": 1803.8
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 2,
+          "constructionUs": 6855,
+          "minimizationUs": 1886.7
+        },
+        {
+          "method": "direct",
+          "repetition": 2,
+          "constructionUs": 2412,
+          "minimizationUs": 1804.9
+        },
+        {
+          "method": "direct",
+          "repetition": 3,
+          "constructionUs": 2427.4,
+          "minimizationUs": 1796.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 3,
+          "constructionUs": 6667.4,
+          "minimizationUs": 1923.2
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 4,
+          "constructionUs": 6449.5,
+          "minimizationUs": 1823.1
+        },
+        {
+          "method": "direct",
+          "repetition": 4,
+          "constructionUs": 2652.6,
+          "minimizationUs": 2091.5
+        },
+        {
+          "method": "direct",
+          "repetition": 5,
+          "constructionUs": 2526.4,
+          "minimizationUs": 1829.1
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 5,
+          "constructionUs": 6395.6,
+          "minimizationUs": 2005
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 6,
+          "constructionUs": 6659.7,
+          "minimizationUs": 2256
+        },
+        {
+          "method": "direct",
+          "repetition": 6,
+          "constructionUs": 2964.5,
+          "minimizationUs": 2254.8
+        },
+        {
+          "method": "direct",
+          "repetition": 7,
+          "constructionUs": 2925.3,
+          "minimizationUs": 2201.2
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 7,
+          "constructionUs": 8045.9,
+          "minimizationUs": 2281.6
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 8,
+          "constructionUs": 8679.9,
+          "minimizationUs": 2241.5
+        },
+        {
+          "method": "direct",
+          "repetition": 8,
+          "constructionUs": 2829.6,
+          "minimizationUs": 2714.3
+        },
+        {
+          "method": "direct",
+          "repetition": 9,
+          "constructionUs": 3930.2,
+          "minimizationUs": 2357.9
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 9,
+          "constructionUs": 8466.5,
+          "minimizationUs": 2155.3
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 10,
+          "constructionUs": 7580.4,
+          "minimizationUs": 2123.6
+        },
+        {
+          "method": "direct",
+          "repetition": 10,
+          "constructionUs": 3633,
+          "minimizationUs": 2121.1
+        },
+        {
+          "method": "direct",
+          "repetition": 11,
+          "constructionUs": 2742.5,
+          "minimizationUs": 2100.9
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 11,
+          "constructionUs": 8357,
+          "minimizationUs": 2150.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 12,
+          "constructionUs": 7562.8,
+          "minimizationUs": 2153
+        },
+        {
+          "method": "direct",
+          "repetition": 12,
+          "constructionUs": 2902.8,
+          "minimizationUs": 2169.4
+        },
+        {
+          "method": "direct",
+          "repetition": 13,
+          "constructionUs": 2773.2,
+          "minimizationUs": 2111.5
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 13,
+          "constructionUs": 8041.4,
+          "minimizationUs": 1997.1
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 14,
+          "constructionUs": 7042.6,
+          "minimizationUs": 1953.6
+        },
+        {
+          "method": "direct",
+          "repetition": 14,
+          "constructionUs": 3469.5,
+          "minimizationUs": 2538.7
+        },
+        {
+          "method": "direct",
+          "repetition": 15,
+          "constructionUs": 2604.8,
+          "minimizationUs": 1997.1
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 15,
+          "constructionUs": 7357.4,
+          "minimizationUs": 2143.9
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 16,
+          "constructionUs": 7263.5,
+          "minimizationUs": 1983
+        },
+        {
+          "method": "direct",
+          "repetition": 16,
+          "constructionUs": 3569,
+          "minimizationUs": 1999.2
+        },
+        {
+          "method": "direct",
+          "repetition": 17,
+          "constructionUs": 2656.9,
+          "minimizationUs": 1992.7
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 17,
+          "constructionUs": 7105.9,
+          "minimizationUs": 1994.3
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 18,
+          "constructionUs": 6972.9,
+          "minimizationUs": 1960.5
+        },
+        {
+          "method": "direct",
+          "repetition": 18,
+          "constructionUs": 3307.1,
+          "minimizationUs": 1954.8
+        },
+        {
+          "method": "direct",
+          "repetition": 19,
+          "constructionUs": 2436.3,
+          "minimizationUs": 1877.3
+        },
+        {
+          "method": "thompson_subset",
+          "repetition": 19,
+          "constructionUs": 6961.9,
+          "minimizationUs": 1984.8
+        }
+      ]
+    }
+  ],
+  "recordedAt": "2026-10-12T20:51:34.508Z",
+  "environment": {
+    "os": "win32 10.0.26200",
+    "arch": "x64",
+    "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "compiler": "g++ (MinGW.org GCC-6.3.0-1) 6.3.0",
+    "flags": "-std=c++17 -O2 -Wall -Wextra -pedantic",
+    "builtAt": "2026-10-12T20:51:31.882Z",
+    "timer": "QueryPerformanceCounter"
+  },
+  "methodology": "Shared parsed AST; three warmups per method; alternating method order; high-resolution monotonic timer in microseconds (QPC on Windows, steady_clock elsewhere); NFA+subset versus direct position method, including tutor metadata. Minimize separately. Parsing, JSON, process startup, and equivalence checks excluded. Complete minimized DFA counts include reachable sinks."
+}

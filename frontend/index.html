@@ -3,79 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Regex → DFA Compiler</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>RegexLab — Automata Compiler</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <main class="page">
-    <header class="masthead">
-      <h1>Regex → DFA</h1>
-      <p class="lede">Type a regular expression and follow it through the compiler, stage by stage.</p>
-    </header>
-
-    <section class="compose" aria-label="Regular expression">
-      <label for="regex" class="compose-label">Regular expression</label>
-      <div class="compose-row">
-        <input id="regex" type="text" value="(a|b)*abb" spellcheck="false" autocomplete="off">
-        <button id="compile" type="button">Compile</button>
+<main class="page">
+  <header class="masthead"><p class="eyebrow">COMPILER DESIGN · AUTOMATA WORKBENCH</p><h1>RegexLab</h1><p class="lede">Follow a regular expression from syntax to states. Test its language, compare algorithms, and verify simpler expressions.</p></header>
+  <section class="compose" aria-label="Regular expression">
+    <label for="regex" class="compose-label">Regular expression</label>
+    <div class="compose-row"><input id="regex" type="text" value="(a|b)*abb" maxlength="256" spellcheck="false" autocomplete="off"><button id="compile" type="button">Compile</button></div>
+    <p class="side-note">Literals, union <code>|</code>, grouping, <code>* + ?</code>, and escaped punctuation. Spaces are literals. Empty regex or <code>()</code> accepts the empty string.</p>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </section>
+  <div class="workbench">
+    <section class="stage-area" aria-label="Compiler stages">
+      <div class="tabs" role="tablist" aria-label="Compiler stages">
+        <button role="tab" id="tab-tokens" aria-controls="panel-tokens" aria-selected="false" tabindex="-1">Tokens</button>
+        <button role="tab" id="tab-ast" aria-controls="panel-ast" aria-selected="false" tabindex="-1">AST</button>
+        <button role="tab" id="tab-nfa" aria-controls="panel-nfa" aria-selected="true">ε-NFA</button>
+        <button role="tab" id="tab-dfa" aria-controls="panel-dfa" aria-selected="false" tabindex="-1">DFA</button>
+        <button role="tab" id="tab-minimized" aria-controls="panel-minimized" aria-selected="false" tabindex="-1">Minimized</button>
+        <button role="tab" id="tab-direct" aria-controls="panel-direct" aria-selected="false" tabindex="-1">Direct DFA</button>
       </div>
-      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div class="panel" id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens" hidden><p class="panel-note">The lexer identifies literals and operators with zero-based source offsets. Escaped punctuation becomes one literal token.</p><ul id="token-list" class="token-list"></ul></div>
+      <div class="panel" id="panel-ast" role="tabpanel" aria-labelledby="tab-ast" hidden><p class="panel-note">The parser applies postfix repetition first, then concatenation, then union. Unary nodes wrap one child; binary nodes combine two.</p><div id="ast-content"></div></div>
+      <div class="panel" id="panel-nfa" role="tabpanel" aria-labelledby="tab-nfa"><p class="panel-note">Thompson construction turns each AST node into a fragment. Dashed ε edges consume no input. Double circles are accepting states; the filled state is the start.</p><div id="nfa-content"></div></div>
+      <div class="panel" id="panel-dfa" role="tabpanel" aria-labelledby="tab-dfa" hidden><p class="panel-note">Each DFA state is an ε-closed set of NFA states. On a symbol, move to its destinations and take ε-closure again. Missing transitions reject.</p><div id="dfa-content"></div></div>
+      <div class="panel" id="panel-minimized" role="tabpanel" aria-labelledby="tab-minimized" hidden><p class="panel-note">Moore refinement separates states whose future acceptance differs. Unreachable states disappear; missing edges share a rejecting sink before refinement. This DFA is complete over its alphabet.</p><div id="minimized-content"></div></div>
+      <div class="panel" id="panel-direct" role="tabpanel" aria-labelledby="tab-direct" hidden><p class="panel-note">The position method skips the NFA. States contain positions that may occur next. The dedicated end marker determines acceptance and is distinct from a literal #.</p><div id="direct-content"></div><details><summary>Inspect nullable, firstpos, lastpos, and followpos</summary><div id="position-content"></div></details></div>
     </section>
-
-    <div class="workbench">
-      <section class="stage-area" aria-label="Compiler stages">
-        <div class="tabs" role="tablist" aria-label="Compiler stages">
-          <button role="tab" id="tab-tokens" aria-controls="panel-tokens" aria-selected="false">Tokens</button>
-          <button role="tab" id="tab-ast" aria-controls="panel-ast" aria-selected="false">AST</button>
-          <button role="tab" id="tab-nfa" aria-controls="panel-nfa" aria-selected="true">ε-NFA</button>
-          <button role="tab" id="tab-dfa" aria-controls="panel-dfa" aria-selected="false" class="tab-planned">DFA</button>
-          <button role="tab" id="tab-min" aria-controls="panel-min" aria-selected="false" class="tab-planned">Minimized DFA</button>
-        </div>
-
-        <div class="panel" id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens" hidden>
-          <p class="panel-note">What the lexer reads from the regex, left to right.</p>
-          <ul id="token-list" class="token-list"></ul>
-        </div>
-
-        <div class="panel" id="panel-ast" role="tabpanel" aria-labelledby="tab-ast" hidden>
-          <p class="panel-note">What the parser builds. Star binds tightest, then concatenation, then union.</p>
-          <div class="diagram"><svg id="ast-svg" role="img" aria-label="Abstract syntax tree"></svg></div>
-        </div>
-
-        <div class="panel" id="panel-nfa" role="tabpanel" aria-labelledby="tab-nfa">
-          <p class="panel-note">Thompson construction. Dashed arrows are ε moves that consume no input.</p>
-          <div class="diagram"><svg id="nfa-svg" role="img" aria-label="Epsilon NFA state diagram"></svg></div>
-        </div>
-
-        <div class="panel" id="panel-dfa" role="tabpanel" aria-labelledby="tab-dfa" hidden>
-          <p class="empty">The DFA is built in the C++ compiler but isn't shown here yet. It will appear once the page is connected to the compiler.</p>
-        </div>
-
-        <div class="panel" id="panel-min" role="tabpanel" aria-labelledby="tab-min" hidden>
-          <p class="empty">Minimization is still in progress in the C++ compiler.</p>
-        </div>
-      </section>
-
-      <aside class="side" aria-label="Summary and string test">
-        <h2>Summary</h2>
-        <dl id="stats" class="stats"></dl>
-
-        <h2>Test a string</h2>
-        <div class="compose-row small">
-          <input id="test-input" type="text" placeholder="aabb" disabled aria-describedby="test-note">
-          <button type="button" disabled>Test</button>
-        </div>
-        <p id="test-note" class="side-note">Available once the matcher is built.</p>
-      </aside>
-    </div>
-
-    <footer class="footer">
-      <p>Prototype. The page shows saved output for <code>(a|b)*abb</code> and is not yet connected to the C++ compiler.</p>
-    </footer>
-  </main>
-  <script src="script.js"></script>
+    <aside class="side" aria-label="Summary and string test">
+      <h2>Compilation</h2><dl id="stats" class="stats"></dl><p id="agreement" class="side-note"></p>
+      <h2>Test a string</h2><label class="side-note" for="test-input">Leave blank to test ε</label>
+      <div class="compose-row small"><input id="test-input" type="text" maxlength="4096" placeholder="aabb" spellcheck="false"><button id="test" type="button" disabled>Test</button></div>
+      <p id="test-result" role="status" aria-live="polite"></p>
+      <label class="side-note" for="trace-step">Execution step</label><input id="trace-step" type="range" min="0" max="0" value="0" disabled><p id="trace-label" class="side-note"></p>
+      <details><summary>Full DFA and ε-NFA trace</summary><div id="trace-content"></div></details>
+    </aside>
+  </div>
+  <section class="analysis-section">
+    <div class="section-heading"><div><h2>Compare construction methods</h2><p>Same AST, three warmups, ten measured runs per method. Construction and minimization are timed separately.</p></div><button id="compare" type="button" disabled>Measure</button></div>
+    <div id="comparison" class="table-wrap"></div>
+  </section>
+  <section class="analysis-section">
+    <div class="section-heading"><div><h2>Verified optimization</h2><p>Each accepted rewrite reduces AST nodes and passes a complete language-equivalence check.</p></div><button id="optimize" type="button" disabled>Simplify</button></div>
+    <div id="optimization"></div>
+    <label for="candidate" class="compose-label">Check your own candidate</label>
+    <div class="compose-row small"><input id="candidate" type="text" placeholder="Example: a+ compared with a*" maxlength="256" spellcheck="false"><button id="equivalent" type="button" disabled>Verify</button></div>
+    <p id="equivalence" role="status" aria-live="polite"></p>
+  </section>
+  <section class="analysis-section">
+    <div class="section-heading"><div><h2>Recorded benchmarks</h2><p>Simple, nested, union, repetition, and state-growth expressions. These are saved measurements from the benchmark runner.</p></div><button id="benchmarks" type="button">Load results</button></div>
+    <div id="benchmark-content"></div>
+  </section>
+  <footer class="footer"><p>C++ compiler · full-string matching · printable ASCII · 256-byte regex limit · 512-state construction limit</p></footer>
+</main>
+<script src="/script.js"></script>
 </body>
 </html>
